@@ -1,11 +1,12 @@
 {
-  "name": "acta-hackathon-starter",
+  "name": "memory-keeper",
   "version": "1.0.0",
   "description": "ACTA 24-hour Global Hackathon starter repository",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "verify": "node verify-submission.js",
-    "start": "echo 'Add your start command here!'",
+    "start": "node backend/server.js",
     "test": "echo 'Add your test command here!'"
   },
   "keywords": [
@@ -18,6 +19,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/actastudios/global-hackathon-v1"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }
-
