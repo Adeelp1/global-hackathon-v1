@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Memory Keeper - Blogs</title>
+  <style>
+    .blogs-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .blog {
+        background: #fff3cd;
+        border: 1px solid #ffeeba;
+        border-radius: 10px;
+        padding: 12px 15px;
+    }
+
+    .blog h3 {
+        margin-top: 0;
+        margin-bottom: 5px;
+        color: #856404;
+    }
+
+    .blog p {
+        margin: 0;
+        color: #5c3d00;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📝 Family Stories</h2>
+    <h3>🔍 Ask About a Specific Memory</h3>
+    <input type="text" id="memory-query" placeholder="e.g. Grandpa’s school days">
+    <button id="generate-blog">Generate Blog</button>
+    <button id="generate-memory">ask</button>
+    <div id="blogs-container" class="blogs-container">
+    </div>
+  </div>
+
+  <script src="blog.js"></script>
+</body>
+</html>

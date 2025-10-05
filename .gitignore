@@ -53,3 +53,4 @@ coverage/
 temp/
 *.bak
 
+memory-keeper.db

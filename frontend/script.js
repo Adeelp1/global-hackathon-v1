@@ -27,9 +27,17 @@ sendBtn.addEventListener("click", async () => {
 });
 
 generateBtn.addEventListener("click", async () => {
-  const res = await fetch("http://localhost:5000/api/generate-blog?user_id=1");
-  const data = await res.json();
-  alert("Story generated: " + data.title);
+  // Redirect to blog.html
+  window.location.href = 'blog.html';
+  // const res = await fetch("http://localhost:5000/api/generate-blog?user_id=1");
+  // const data = await res.json();
+  console.log(data);
+  // Save message to the localstorage
+  localStorage.setItem("latestStory", data.story);
+  localStorage.setItem("latestTitle", data.title);
+
+
+
 });
 
 function addMessage(text, sender) {
