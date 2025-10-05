@@ -36,7 +36,7 @@ generate_memory.addEventListener('click', async () => {
     if (!message) return;
     memory_query.value = "";
 
-    const res = await fetch("https://global-hackathon-v1-bhv6.onrender.com//api/generate-memory", {
+    const res = await fetch("https://global-hackathon-v1-bhv6.onrender.com/api/generate-memory", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_id: 1, message })
