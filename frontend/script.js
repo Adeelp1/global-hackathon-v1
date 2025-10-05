@@ -14,7 +14,7 @@ sendBtn.addEventListener("click", async () => {
   userInput.value = "";
 
   // Send to backend
-  const res = await fetch("http://localhost:5000/api/chat", {
+  const res = await fetch("https://global-hackathon-v1-bhv6.onrender.com//api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ user_id: 1, message })

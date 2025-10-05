@@ -6,7 +6,7 @@ const memory_query = document.getElementById("memory-query");
 generate_blog.addEventListener("click", async () => {
     // const blogsContainer = document.getElementById("blogs-container");
 
-    const res = await fetch("http://localhost:5000/api/generate-blog?user_id=1");
+    const res = await fetch("https://global-hackathon-v1-bhv6.onrender.com/api/generate-blog?user_id=1");
     const data = await res.json();
 
     // Read story from localStorage
@@ -36,7 +36,7 @@ generate_memory.addEventListener('click', async () => {
     if (!message) return;
     memory_query.value = "";
 
-    const res = await fetch("http://localhost:5000/api/generate-memory", {
+    const res = await fetch("https://global-hackathon-v1-bhv6.onrender.com//api/generate-memory", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_id: 1, message })

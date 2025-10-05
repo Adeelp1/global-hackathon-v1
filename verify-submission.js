@@ -9,9 +9,9 @@
  * Run before submitting: node verify-submission.js
  */
 
-const { execSync } = require('child_process');
-const fs = require('fs');
-const path = require('path');
+import { execSync } from 'child_process';
+import { existsSync, readFileSync, readdirSync } from 'fs';
+import { join } from 'path';
 
 // Hackathon timing (CET timezone)
 const HACKATHON_START = new Date('2025-10-04T12:00:00+02:00'); // Oct 4, 12:00 CET
@@ -75,8 +75,8 @@ function getGitCommits() {
 function checkInitialTimestamp() {
   header('Checking Initial Timestamp');
   
-  const timestampPath = path.join(process.cwd(), INITIAL_TIMESTAMP_FILE);
-  const exists = fs.existsSync(timestampPath);
+  const timestampPath = join(process.cwd(), INITIAL_TIMESTAMP_FILE);
+  const exists = existsSync(timestampPath);
   
   if (!checkmark(exists, `Initial timestamp file (${INITIAL_TIMESTAMP_FILE}) exists`)) {
     log('\n  Create it now with:', colors.yellow);
@@ -87,7 +87,7 @@ function checkInitialTimestamp() {
   }
   
   try {
-    const content = fs.readFileSync(timestampPath, 'utf-8');
+    const content = readFileSync(timestampPath, 'utf-8');
     log(`\n  Timestamp content: ${content.trim()}`, colors.blue);
   } catch (error) {
     warning('Could not read timestamp file content');
@@ -248,11 +248,11 @@ function checkGitHistory() {
 function checkProjectFiles() {
   header('Checking Project Files');
   
-  const hasReadme = fs.existsSync('README.md');
+  const hasReadme = existsSync('README.md');
   checkmark(hasReadme, 'README.md exists');
   
   if (hasReadme) {
-    const readme = fs.readFileSync('README.md', 'utf-8');
+    const readme = readFileSync('README.md', 'utf-8');
     const hasProjectInfo = readme.length > 1000 && !readme.includes('[SUBMISSION LINK TO BE ADDED]');
     
     if (hasProjectInfo) {
@@ -264,7 +264,7 @@ function checkProjectFiles() {
   }
   
   // Check for common project files
-  const files = fs.readdirSync(process.cwd());
+  const files = readdirSync(process.cwd());
   const hasCode = files.some(f => 
     f.endsWith('.js') || 
     f.endsWith('.ts') || 
